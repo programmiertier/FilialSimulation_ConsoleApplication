@@ -14,17 +14,33 @@ namespace FilialSimulation_ConsoleApplication
               new Artikel(3, 0.2, 2.25),
               new Artikel(4, 0.12, 1.66),
               new Artikel(5, 0.20, 5.30),
+              new Artikel(6, 0.1, 1.66),
+              new Artikel(7, 0.15, 1.66),
+              new Artikel(8, 0.1, 1.66),
+              new Artikel(9, 0.15, 23.00),
+              new Artikel(10, 0.12, 2.25),
 
         };
         
         static void Main()
         {
+            Regal[] verkauftsraum = new Regal[warenkatalog.Length]; // Speicher für 800, vom Typ Regal
+            
+
+
             WriteLine("Hier kommt der Warenkatalog:");
             for (int dieID = 0; dieID < warenkatalog.Length; dieID++)
             {
-                Regal temp = new Regal(dieID, warenkatalog);        // wenn nur Artikel, dann Artikel statt Regal
+                // Artikel temp = new Artikel(dieID, warenkatalog);
+                // Regal temp = new Regal(dieID, warenkatalog);
+                verkauftsraum[dieID] = new Regal(dieID, warenkatalog);
             }
-
+            ReadLine();
+            // WriteLine("Das Regal hat einen Inhalt von:\t{0}" ,verkauftsraum[4].regal_aktuellerInhalt);
+            foreach(Regal r in verkauftsraum)
+            {
+                Write("{0:D2}\t", r.regal_aktuellerInhalt);
+            }
             ReadLine();
         }
     }
