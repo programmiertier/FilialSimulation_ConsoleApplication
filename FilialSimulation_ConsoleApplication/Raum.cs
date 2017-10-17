@@ -16,7 +16,7 @@ namespace FilialSimulation_ConsoleApplication
 
         public Raum()
         {
-
+            WriteLine("Der Raum selbst");
         }
 
         public Raum(string rb, int rf)
@@ -30,6 +30,7 @@ namespace FilialSimulation_ConsoleApplication
         public Verkauf()
         {
             _raum_bezeichnung = "Ladenfläche";
+            WriteLine("Hier ist die {0}", _raum_bezeichnung);
         }
     }
     internal class Lager : Raum

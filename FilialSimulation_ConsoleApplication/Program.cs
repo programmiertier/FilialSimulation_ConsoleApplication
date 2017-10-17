@@ -42,6 +42,8 @@ namespace FilialSimulation_ConsoleApplication
                 Write("{0:D2}\t", r.regal_aktuellerInhalt);
             }
             ReadLine();
+            Verkauf derVerkauf = new Verkauf();
+            ReadLine();
         }
     }
 }
