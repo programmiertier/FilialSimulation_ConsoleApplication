@@ -8,27 +8,21 @@ namespace FilialSimulation_ConsoleApplication
     {
         static Artikel[] warenkatalog = new Artikel[]
         {
-              new Artikel(1, 1.99, 0.12),   // id, preis, volumen
-              new Artikel(2, 23.00, 0.1),
-              new Artikel(3, 2.25, 0.2),
-              new Artikel(4, 1.66, 0.12),
-              new Artikel(5, 5.30, 0.20),
+              new Artikel(0, 0.15, 0.15),
+              new Artikel(1, 0.12, 1.99),   // id, preis, volumen
+              new Artikel(2, 0.1, 23.00),
+              new Artikel(3, 0.2, 2.25),
+              new Artikel(4, 0.12, 1.66),
+              new Artikel(5, 0.20, 5.30),
 
         };
         
-        static Regal[] erstesregal = new Regal[]
-        {
-            new Regal(1, )
-        };
-
-        
-
         static void Main()
         {
             WriteLine("Hier kommt der Warenkatalog:");
             for (int dieID = 0; dieID < warenkatalog.Length; dieID++)
             {
-                Artikel temp = new Artikel(dieID, warenkatalog);
+                Regal temp = new Regal(dieID, warenkatalog);        // wenn nur Artikel, dann Artikel statt Regal
             }
 
             ReadLine();
