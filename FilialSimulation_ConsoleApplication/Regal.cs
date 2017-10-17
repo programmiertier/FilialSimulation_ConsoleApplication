@@ -6,20 +6,69 @@ using static System.Console;
 
 namespace FilialSimulation_ConsoleApplication
 {
-    public class Regal
+    internal class Regal
     {
-        int id;
-        double volumenRegal = 1.0;
-        int aktuellerInhalt;
-        double aktuellerWert;       // wie viel die aktuellen Waren, im Regal (natürlich... Peperoni) wert sind
-        double kapazitaet;
-        bool nachfuellen;
-        double mindestBestand;
-        
+        private int _regal_id;
+        private double _regal_volumen = 1.0;
+        private Artikel _artikel;
+        private int _regal_kapazitaet;
+        private double _regal_mindestBestand; // = kapazitaet * 0,3
+        private int _regal_aktuellerInhalt;
+        private bool _regal_nachfuellen;
+        private double _regal_aktuellerWert;      // wie viel die aktuellen Waren, im Regal (natürlich... Peperoni) wert sind
 
-        public void mindest(double mindestBestand, double kapazitaet)
+        public int regal_aktuellerInhalt
         {
-            mindestBestand = kapazitaet * 0.3;
+            get
+            {
+                return _regal_aktuellerInhalt;
+            }
+            set
+            {
+                _regal_aktuellerInhalt = value;
+            }
         }
+
+        public double regal_aktuellerWert
+        {
+            get
+            {
+                return _regal_aktuellerWert;
+            }
+            set
+            {
+                _regal_aktuellerWert = value;
+            }
+        }
+        public bool regal_nachfuellen
+        {
+            get
+            {
+                return _regal_nachfuellen;
+            }
+            set
+            {
+                _regal_nachfuellen = value;
+            }
+        }
+
+        public Regal()
+        {
+
+        }
+        
+        public Regal(int id, Artikel[] wkatalog)
+        {
+            _regal_id = id;
+            _artikel = new Artikel(_regal_id, wkatalog);
+            _regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_volumen);
+            _regal_mindestBestand = (int)(_regal_kapazitaet * .3);
+            regal_aktuellerInhalt = _regal_kapazitaet;
+            regal_nachfuellen = regal_aktuellerInhalt > _regal_kapazitaet;
+            regal_aktuellerWert = regal_aktuellerInhalt * _artikel.artikel_preis;
+            WriteLine("Regal {0} aufgestellt mit einer Kapazität von {1} Stück", _regal_id, _regal_kapazitaet);
+            WriteLine("Das Regal hat einen Wert von {0} Euro\n", regal_aktuellerWert);
+        }
+
     }
 }

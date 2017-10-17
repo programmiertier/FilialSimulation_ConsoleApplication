@@ -6,29 +6,50 @@ using static System.Console;
 
 namespace FilialSimulation_ConsoleApplication
 {
-    class Artikel
+    internal class Artikel
     {
-        int id;
-        double volumen;
-        double preis;
+        private int _artikel_id;
+        private double _artikel_volumen;
+        private double _artikel_preis;
 
-        public Artikel(int meineid, Artikel[] warenkorb)
+        public double artikel_preis
         {
-            WriteLine("Artikel {0} angelegt: ", warenkorb[meineid].id);
-            id = warenkorb[meineid].id;
-            volumen = warenkorb[meineid].volumen;
-            preis = warenkorb[meineid].preis;
-            WriteLine("Mit einem Preis von {0:F2} und einem Volumen von {1:F2}", preis, volumen);
+            get
+            {
+                return _artikel_preis;
+            }
+        }
+
+        public double artikel_volumen
+        {
+            get
+            {
+                return _artikel_volumen;
+            }
+        }
+
+        public Artikel()
+        {
+            //  WriteLine("Artikel  angelegt:");
+        }
+
+        public Artikel(int id, Artikel[] wkatalog)
+        {
+            WriteLine("Artikel {0} angelegt: ", wkatalog[id]._artikel_id);
+            _artikel_id = wkatalog[id]._artikel_id;
+            _artikel_preis = wkatalog[id]._artikel_preis;
+            _artikel_volumen = wkatalog[id]._artikel_volumen;
+            WriteLine("Der Artikel hat einen Preis von {0:F2} und ein Volumen von {1:F2}", _artikel_preis, _artikel_volumen);
         }
 
 
-        public Artikel(int meineid, double meinpreis, double meinvolumen)
+        /*public Artikel(int id, double volumen, double preis)
         {
-            // WriteLine("Artikel {0} angelegt: ", id);
-            id = meineid;
-            volumen = meinvolumen;
-            preis = meinpreis;
-        }
+            // WriteLine("Artikel wurde {0} angelegt: ", id);
+            _artikel_id = id;
+            _artikel_preis = preis;
+            _artikel_volumen = volumen;
+        }*/
 
 
     }

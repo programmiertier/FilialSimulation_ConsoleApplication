@@ -1,16 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FilialSimulation_ConsoleApplication.Regal">
-    <Position X="1.75" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAIAAAAIgACAAAAAAAAAAAAABAAAAAEiA=</HashCode>
-      <FileName>Regal.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="FilialSimulation_ConsoleApplication.Artikel">
-    <Position X="5.75" Y="1.25" Width="1.5" />
+    <Position X="5.75" Y="1.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAQAAAAgAAAIAAAAAABAAAAAAAAAAAA=</HashCode>
       <FileName>Artikel.cs</FileName>
     </TypeIdentifier>
   </Class>
