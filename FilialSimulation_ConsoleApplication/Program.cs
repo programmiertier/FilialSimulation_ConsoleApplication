@@ -42,7 +42,13 @@ namespace FilialSimulation_ConsoleApplication
                 Write("{0:D2}\t", r.regal_aktuellerInhalt);
             }
             ReadLine();
-            Verkauf derVerkauf = new Verkauf();
+
+            Verkauf einVerkauf = new Verkauf();
+            Verkauf hieristsogarwasdrin = new Verkauf("KonstruktorMitText");
+
+            Lager lagerraum = new Lager();
+            Lager apfel = new Lager("ApfelkuchenBitteHier");
+            
             ReadLine();
         }
     }

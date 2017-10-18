@@ -50,7 +50,5 @@ namespace FilialSimulation_ConsoleApplication
             _artikel_preis = preis;
             _artikel_volumen = volumen;
         }
-
-
     }
 }

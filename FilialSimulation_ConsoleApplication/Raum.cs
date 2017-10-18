@@ -10,34 +10,73 @@ namespace FilialSimulation_ConsoleApplication
     internal class Raum
     {
         protected string _raum_bezeichnung;
-        protected int _raum_flaeche;   // in qm
-        protected static int _raum_kapazitaet;
-        protected Regal[] regal = new Regal[_raum_kapazitaet];
+        protected double _raum_flaeche;   // in qm
+        protected static int _raum_anzahlRegale;
+        protected bool _raum_kundenErlaubt;
+
+        protected Regal[] schnurzipupsregal = new Regal[_raum_anzahlRegale];
+
+        public int raum_anzahlRegale
+        {
+            get
+            {
+                return _raum_anzahlRegale;
+            }
+
+            set
+            {
+                _raum_anzahlRegale = value;
+            }
+        }
+
+        public string raum_bezeichnung
+        {
+            get
+            {
+                return _raum_bezeichnung;
+            }
+
+            set
+            {
+                _raum_bezeichnung = value;
+            }
+        }
 
         public Raum()
         {
-            WriteLine("Der Raum selbst");
+            WriteLine("Leerer Konstruktor der Mutterklasse");
         }
-
-        public Raum(string rb, int rf)
-        {
-
-        }
-
     }
+
     internal class Verkauf : Raum
     {
+        public string verkaufsraumbezeichnung;
+
+        public Verkauf(string verkaufsraumbezeichnung)
+        {
+            _raum_bezeichnung = verkaufsraumbezeichnung;    // wert, der gelesen werden soll, MUSS rechts vom = stehen
+            WriteLine("Mein Verkaufsraum heißt {0}", verkaufsraumbezeichnung);
+        }
+
         public Verkauf()
         {
-            _raum_bezeichnung = "Ladenfläche";
-            WriteLine("Hier ist die {0}", _raum_bezeichnung);
+            WriteLine("Hier ist der leere Verkaufsraum");
         }
     }
+
     internal class Lager : Raum
     {
+        public string lagerbezeichnungweilname;
+
+        public Lager(string lagerbezeichnungweilname)
+        {
+            _raum_bezeichnung = lagerbezeichnungweilname;
+            WriteLine("Mein Name ist {0}", lagerbezeichnungweilname);
+        }
+        
         public Lager()
         {
-            _raum_bezeichnung = "Lagerfläche";
+            WriteLine("Ein leeres Lager, ganz ohne Parameterliste im Konstruktor");
         }
     }
 }
