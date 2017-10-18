@@ -61,7 +61,6 @@ namespace FilialSimulation_ConsoleApplication
             {
                 return _raum_kundenErlaubt;
             }
-
             set
             {
                 _raum_kundenErlaubt = value;
