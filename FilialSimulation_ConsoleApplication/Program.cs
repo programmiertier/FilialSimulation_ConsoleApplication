@@ -6,6 +6,7 @@ namespace FilialSimulation_ConsoleApplication
     
     class Program
     {
+
         static Artikel[] warenkatalog = new Artikel[]
         {
               new Artikel(0, 0.15, 0.15),
@@ -24,7 +25,7 @@ namespace FilialSimulation_ConsoleApplication
         
         static void Main()
         {
-            Regal[] verkauftsraum = new Regal[warenkatalog.Length]; // Speicher für 800, vom Typ Regal
+            /*Regal[] verkauftsraum = new Regal[warenkatalog.Length]; // Speicher für 800, vom Typ Regal
             
 
 
@@ -41,13 +42,13 @@ namespace FilialSimulation_ConsoleApplication
             {
                 Write("{0:D2}\t", r.regal_aktuellerInhalt);
             }
-            ReadLine();
+            ReadLine();*/
 
-            Verkauf einVerkauf = new Verkauf();
-            Verkauf hieristsogarwasdrin = new Verkauf("KonstruktorMitText");
+            // Verkauf einVerkauf = new Verkauf(); // ruft leeren Konstruktor auf
+            Verkauf hieristsogarwasdrin = new Verkauf("VerkaufsRaumBesondersToll", 300, 150, true);
 
-            Lager lagerraum = new Lager();
-            Lager apfel = new Lager("ApfelkuchenBitteHier");
+            // Lager lagerraum = new Lager();
+            Lager apfel = new Lager("ApfelkuchenBitteHier", 20, 100, false);
             
             ReadLine();
         }

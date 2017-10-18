@@ -42,20 +42,56 @@ namespace FilialSimulation_ConsoleApplication
             }
         }
 
+        public double raum_flaeche
+        {
+            get
+            {
+                return _raum_flaeche;
+            }
+
+            set
+            {
+                _raum_flaeche = value;
+            }
+        }
+
+        public bool raum_kundenErlaubt
+        {
+            get
+            {
+                return _raum_kundenErlaubt;
+            }
+
+            set
+            {
+                _raum_kundenErlaubt = value;
+                if (value == true)
+                { Write("erlaubt"); }
+                else
+                { Write("nicht erlaubt"); }
+            }
+        }
+
         public Raum()
         {
             WriteLine("Leerer Konstruktor der Mutterklasse");
+        }
+
+        public Raum(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt)
+        {
+            raum_bezeichnung = bezeichnung;
+            raum_anzahlRegale = anzahlRegale;
+            raum_flaeche = flaeche;
+            raum_kundenErlaubt = kundenErlaubt;
         }
     }
 
     internal class Verkauf : Raum
     {
-        public string verkaufsraumbezeichnung;
-
-        public Verkauf(string verkaufsraumbezeichnung)
+        public Verkauf(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt) : base(bezeichnung, anzahlRegale, flaeche, kundenErlaubt)
         {
-            _raum_bezeichnung = verkaufsraumbezeichnung;    // wert, der gelesen werden soll, MUSS rechts vom = stehen
-            WriteLine("Mein Verkaufsraum heißt {0}", verkaufsraumbezeichnung);
+            // wert, der gelesen werden soll, MUSS rechts vom = stehen
+            WriteLine("Mein Verkaufsraum heißt {0}\nEs sind {1} Regale vorhanden\nmeine Fläche beträgt\t{2}qm\nKunden sind {3}\n", bezeichnung, anzahlRegale, flaeche, kundenErlaubt);
         }
 
         public Verkauf()
@@ -66,12 +102,9 @@ namespace FilialSimulation_ConsoleApplication
 
     internal class Lager : Raum
     {
-        public string lagerbezeichnungweilname;
-
-        public Lager(string lagerbezeichnungweilname)
+        public Lager(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt) : base(bezeichnung, anzahlRegale, flaeche, kundenErlaubt)
         {
-            _raum_bezeichnung = lagerbezeichnungweilname;
-            WriteLine("Mein Name ist {0}", lagerbezeichnungweilname);
+            WriteLine("Mein Lagerraum heißt {0}\nEs sind {1} Regale vorhanden\nmeine Fläche beträgt\t{2}qm\nKunden {3}", bezeichnung, anzahlRegale, flaeche, kundenErlaubt);
         }
         
         public Lager()
