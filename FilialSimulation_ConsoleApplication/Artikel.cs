@@ -28,6 +28,18 @@ namespace FilialSimulation_ConsoleApplication
             }
         }
 
+        public int artikel_id
+        {
+            get
+            {
+                return _artikel_id;
+            }
+            set
+            {
+                _artikel_id = value;
+            }
+        }
+
         public Artikel()
         {
             //  WriteLine("Artikel  angelegt:");

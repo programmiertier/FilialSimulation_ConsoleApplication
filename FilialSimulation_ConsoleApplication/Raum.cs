@@ -14,7 +14,7 @@ namespace FilialSimulation_ConsoleApplication
         protected static int _raum_anzahlRegale;
         protected bool _raum_kundenErlaubt;
 
-        protected Regal[] schnurzipupsregal = new Regal[_raum_anzahlRegale];
+        public Regal[] schnurzipupsregal = new Regal[_raum_anzahlRegale];
 
         public int raum_anzahlRegale
         {
@@ -73,42 +73,66 @@ namespace FilialSimulation_ConsoleApplication
 
         public Raum()
         {
-            WriteLine("Leerer Konstruktor der Mutterklasse");
+
         }
 
-        public Raum(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt)
+        public Raum(string b, double flaeche)
         {
-            raum_bezeichnung = bezeichnung;
-            raum_anzahlRegale = anzahlRegale;
-            raum_flaeche = flaeche;
-            raum_kundenErlaubt = kundenErlaubt;
+            _raum_bezeichnung = b;
+            _raum_flaeche = flaeche;
+        }
+
+        public void anzeigen(Regal[] schnurzipupsregal)
+        {
+            WriteLine(GetType().ToString());
+            WriteLine("Das Objekt hat folgende Eignschaften ");
+            WriteLine("Bezeichnung: {0}\tFläche: {1}", raum_bezeichnung, _raum_flaeche);
+            WriteLine("Hier stehen {0} Regale ", raum_anzahlRegale);
+            WriteLine("Kunden sind {0} erlaubt", _raum_kundenErlaubt ? "" : "nicht");
+            foreach (Regal platzhalter in schnurzipupsregal)
+            {
+                WriteLine("Im Regal: {0} sind {1} Gegenstände\n", platzhalter.regal_id, platzhalter.regal_aktuellerInhalt);
+            }
         }
     }
 
     internal class Verkauf : Raum
     {
-        public Verkauf(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt) : base(bezeichnung, anzahlRegale, flaeche, kundenErlaubt)
-        {
-            // wert, der gelesen werden soll, MUSS rechts vom = stehen
-            WriteLine("Mein Verkaufsraum heißt {0}\nEs sind {1} Regale vorhanden\nmeine Fläche beträgt\t{2}qm\nKunden sind {3}\n", bezeichnung, anzahlRegale, flaeche, kundenErlaubt);
-        }
-
         public Verkauf()
         {
-            WriteLine("Hier ist der leere Verkaufsraum");
+
+        }
+
+        /*public Verkauf(string b, double flaeche) : base(b, flaeche)
+        {
+            _raum_kundenErlaubt = true;
+            raum_anzahlRegale = (int)(flaeche / .5);
+        }*/
+
+        public Verkauf(string b, double flaeche, Artikel[] wkatalog) : base(b, flaeche)
+        {
+            _raum_kundenErlaubt = true;
+            raum_anzahlRegale = (int)(flaeche / 0.5);
+
+            schnurzipupsregal = new Regal[wkatalog.Length];
+            for(int zaehler = 0; zaehler < wkatalog.Length; zaehler++)
+            {
+                schnurzipupsregal[zaehler] = new Regal(zaehler, wkatalog);
+            }
         }
     }
 
     internal class Lager : Raum
     {
-        public Lager(string bezeichnung, int anzahlRegale, double flaeche, bool kundenErlaubt) : base(bezeichnung, anzahlRegale, flaeche, kundenErlaubt)
-        {
-            WriteLine("Mein Lagerraum heißt {0}\nEs sind {1} Regale vorhanden\nmeine Fläche beträgt\t{2}qm\nKunden {3}", bezeichnung, anzahlRegale, flaeche, kundenErlaubt);
-        }
-        
         public Lager()
         {
-            WriteLine("Ein leeres Lager, ganz ohne Parameterliste im Konstruktor");
+
         }
+
+        /*public Lager(string b, double flaeche) : base(b, flaeche)
+        {
+            _raum_kundenErlaubt = false;
+            raum_anzahlRegale = (int)(flaeche / 0.5);
+        }*/
     }
 }

@@ -19,7 +19,7 @@ namespace FilialSimulation_ConsoleApplication
               new Artikel(7, 0.15, 1.66),
               new Artikel(8, 0.1, 1.66),
               new Artikel(9, 0.15, 23.00),
-              new Artikel(10, 0.12, 2.25),
+              new Artikel(10, 0.12, 2.25)
 
         };
         
@@ -45,11 +45,16 @@ namespace FilialSimulation_ConsoleApplication
             ReadLine();*/
 
             // Verkauf einVerkauf = new Verkauf(); // ruft leeren Konstruktor auf
-            Verkauf hieristsogarwasdrin = new Verkauf("VerkaufsRaumBesondersToll", 300, 150, true);
+            Verkauf verkaufhier = new Verkauf("VerkaufsRaumBesondersToll", 400.0, warenkatalog);
+            verkaufhier.anzeigen(verkaufhier.schnurzipupsregal);
+            // Regale des Verkaufsraumes anzeigen
+            // ein bestimmtes Regal
+            // alle Regale
 
             // Lager lagerraum = new Lager();
-            Lager apfel = new Lager("ApfelkuchenBitteHier", 20, 100, false);
-            
+            /*Lager apfellager = new Lager("ApfelkuchenBitteHier", 240.0);
+            apfellager.anzeigen();*/
+
             ReadLine();
         }
     }
