@@ -3,10 +3,8 @@ using static System.Console;
 
 namespace FilialSimulation_ConsoleApplication
 {
-    
     class Program
     {
-
         static Artikel[] warenkatalog = new Artikel[]
         {
               new Artikel(0, 0.15, 0.15),
@@ -20,42 +18,30 @@ namespace FilialSimulation_ConsoleApplication
               new Artikel(8, 0.1, 1.66),
               new Artikel(9, 0.15, 23.00),
               new Artikel(10, 0.12, 2.25)
-
         };
-        
+
         static void Main()
         {
-            /*Regal[] verkauftsraum = new Regal[warenkatalog.Length]; // Speicher für 800, vom Typ Regal
-            
-
-
-            WriteLine("Hier kommt der Warenkatalog:");
-            for (int dieID = 0; dieID < warenkatalog.Length; dieID++)
-            {
-                // Artikel temp = new Artikel(dieID, warenkatalog);
-                // Regal temp = new Regal(dieID, warenkatalog);
-                verkauftsraum[dieID] = new Regal(dieID, warenkatalog);
-            }
-            ReadLine();
-            // WriteLine("Das Regal hat einen Inhalt von:\t{0}" ,verkauftsraum[4].regal_aktuellerInhalt);
-            foreach(Regal r in verkauftsraum)
-            {
-                Write("{0:D2}\t", r.regal_aktuellerInhalt);
-            }
-            ReadLine();*/
-
             // Verkauf einVerkauf = new Verkauf(); // ruft leeren Konstruktor auf
-            Verkauf verkaufhier = new Verkauf("VerkaufsRaumBesondersToll", 400.0, warenkatalog);
-            verkaufhier.anzeigen(verkaufhier.schnurzipupsregal);
-            // Regale des Verkaufsraumes anzeigen
-            // ein bestimmtes Regal
-            // alle Regale
+            Verkauf hierwirdeingekauft = new Verkauf("VerkaufsRaumBesondersToll", 400.0, warenkatalog);
+            // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal);            // alle Regale
+            ReadLine();
 
-            // Lager lagerraum = new Lager();
-            /*Lager apfellager = new Lager("ApfelkuchenBitteHier", 240.0);
+            // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 7);      // genau 1 Regal
+            ReadLine();
+
+            // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 1, 3);    // ein Bereich von bis
+
+            /* Lager lagerraum = new Lager();
+            Lager apfellager = new Lager("ApfelkuchenBitteHier", 240.0);
             apfellager.anzeigen();*/
 
+            // einkaufen testen
+            hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 4);   // Regal 4 aufrufen
+            hierwirdeingekauft.schnurzipupsregal[4].regal_aktuellerInhalt -= 20;    // 20 aus Regal 4 entnehmen
+            hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 4);   // Regal 4 nochmal zur Kontrolle aufrufen
             ReadLine();
+
         }
     }
 }

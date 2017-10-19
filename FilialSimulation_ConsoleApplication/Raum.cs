@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using static System.ConsoleColor;
 
 namespace FilialSimulation_ConsoleApplication
 {
@@ -84,20 +85,33 @@ namespace FilialSimulation_ConsoleApplication
 
         public void anzeigen(Regal[] schnurzipupsregal)
         {
-            WriteLine(GetType().ToString());
-            WriteLine("Das Objekt hat folgende Eignschaften ");
-            WriteLine("Bezeichnung: {0}\tFläche: {1}", raum_bezeichnung, _raum_flaeche);
-            WriteLine("Hier stehen {0} Regale ", raum_anzahlRegale);
-            WriteLine("Kunden sind {0} erlaubt", _raum_kundenErlaubt ? "" : "nicht");
-            foreach (Regal platzhalter in schnurzipupsregal)
+            anzeigen(schnurzipupsregal, 0, schnurzipupsregal.Length - 1);
+        }
+
+        public void anzeigen(Regal[] schnurzipupsregal, int einzelnesRegal)
+        {
+            anzeigen(schnurzipupsregal, einzelnesRegal, einzelnesRegal);
+        }
+
+        public void anzeigen(Regal[] schnurzipupsregal, int von, int bis)
+        {
+            
+            for (int zaehler = von; zaehler <= bis; zaehler++)
             {
-                WriteLine("Im Regal: {0} sind {1} Gegenstände\n", platzhalter.regal_id, platzhalter.regal_aktuellerInhalt);
-            }
+                Regal platzhalter = schnurzipupsregal[zaehler];
+                if(platzhalter.regal_aktuellerInhalt<1)
+                {
+                    ForegroundColor = Red;
+                }
+                WriteLine("Hier ist das Regal:\t{0,3:D} : \t{1,3:D} Inhalt", schnurzipupsregal[zaehler].regal_id, schnurzipupsregal[zaehler].regal_aktuellerInhalt);
+             }
         }
     }
 
     internal class Verkauf : Raum
     {
+        private int _anzahlKunden;
+
         public Verkauf()
         {
 
@@ -106,7 +120,7 @@ namespace FilialSimulation_ConsoleApplication
         /*public Verkauf(string b, double flaeche) : base(b, flaeche)
         {
             _raum_kundenErlaubt = true;
-            raum_anzahlRegale = (int)(flaeche / .5);
+            raum_anzahlRegale = (int)(flaeche / 0.5);
         }*/
 
         public Verkauf(string b, double flaeche, Artikel[] wkatalog) : base(b, flaeche)
