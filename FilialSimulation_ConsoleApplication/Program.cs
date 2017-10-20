@@ -10,13 +10,13 @@ namespace FilialSimulation_ConsoleApplication
             Warenkatalog wkatalog = new Warenkatalog();
             // Verkauf einVerkauf = new Verkauf(); // ruft leeren Konstruktor auf
             Verkauf hierwirdeingekauft = new Verkauf("VerkaufsRaumBesondersToll", 400.0, ref wkatalog.warenkatalog);
-            // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal);            // alle Regale
+             hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal);            // alle Regale
             // ReadLine();
 
             // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 7);      // genau 1 Regal
             // ReadLine();
 
-            hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 1, 800);    // ein Bereich von bis
+            // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 1, 20);    // ein Bereich von bis
 
             /* Lager lagerraum = new Lager();
             Lager apfellager = new Lager("ApfelkuchenBitteHier", 240.0);

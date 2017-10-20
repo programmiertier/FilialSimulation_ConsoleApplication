@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using static System.Console;
 using static System.ConsoleColor;
 
+
 namespace FilialSimulation_ConsoleApplication
 {
     internal class Raum
@@ -85,43 +86,17 @@ namespace FilialSimulation_ConsoleApplication
 
         public void anzeigen(Regal[] schnurzipupsregal)
         {
-            anzeigen(schnurzipupsregal, 0, schnurzipupsregal.Length - 1);
+            Display.darstellen(schnurzipupsregal, 0, schnurzipupsregal.Length - 1);
         }
 
         public void anzeigen(Regal[] schnurzipupsregal, int einzelnesRegal)
         {
-            anzeigen(schnurzipupsregal, einzelnesRegal, einzelnesRegal);
+            Display.darstellen(schnurzipupsregal, einzelnesRegal, einzelnesRegal);
         }
 
         public void anzeigen(Regal[] schnurzipupsregal, int von, int bis)
         {
-            {
-                int startLeft = 0; int startTop = 2;
-                SetCursorPosition(startLeft, startTop);
-                ForegroundColor = Black;
-            }
-                for (int zaehler = von; zaehler <= bis; zaehler++)
-                {
-                    Regal platzhalter = schnurzipupsregal[zaehler];
-                if (platzhalter.regal_aktuellerInhalt < 30)
-                {
-                    BackgroundColor = Red;
-                }
-                else
-                {
-                    BackgroundColor = Green;
-                }
-                    Write("{0,4:D}", schnurzipupsregal[zaehler].regal_id);
-                    if (zaehler % 40 == 0)
-                    {
-                        WriteLine();
-                    }
-                    if (zaehler % 80 == 0)
-                    {
-                        WriteLine();
-                        WriteLine();
-                    }
-                }
+            Display.darstellen(schnurzipupsregal, von, bis);
         }
     }
 
@@ -134,11 +109,11 @@ namespace FilialSimulation_ConsoleApplication
 
         }
 
-        /*public Verkauf(string b, double flaeche) : base(b, flaeche)
+        /* public Verkauf(string b, double flaeche) : base(b, flaeche)
         {
             _raum_kundenErlaubt = true;
             raum_anzahlRegale = (int)(flaeche / 0.5);
-        }*/
+        } */
 
         public Verkauf(string b, double flaeche, ref Artikel[] wkatalog) : base(b, flaeche)
         {
