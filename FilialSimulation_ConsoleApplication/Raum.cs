@@ -123,7 +123,7 @@ namespace FilialSimulation_ConsoleApplication
             raum_anzahlRegale = (int)(flaeche / 0.5);
         }*/
 
-        public Verkauf(string b, double flaeche, Artikel[] wkatalog) : base(b, flaeche)
+        public Verkauf(string b, double flaeche, ref Artikel[] wkatalog) : base(b, flaeche)
         {
             _raum_kundenErlaubt = true;
             raum_anzahlRegale = (int)(flaeche / 0.5);

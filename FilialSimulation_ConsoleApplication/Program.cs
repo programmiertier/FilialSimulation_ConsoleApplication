@@ -5,25 +5,13 @@ namespace FilialSimulation_ConsoleApplication
 {
     class Program
     {
-        static Artikel[] warenkatalog = new Artikel[]
-        {
-              new Artikel(0, 0.15, 0.15),
-              new Artikel(1, 0.12, 1.99),   // id, preis, volumen
-              new Artikel(2, 0.1, 23.00),
-              new Artikel(3, 0.2, 2.25),
-              new Artikel(4, 0.12, 1.66),
-              new Artikel(5, 0.20, 5.30),
-              new Artikel(6, 0.1, 1.66),
-              new Artikel(7, 0.15, 1.66),
-              new Artikel(8, 0.1, 1.66),
-              new Artikel(9, 0.15, 23.00),
-              new Artikel(10, 0.12, 2.25)
-        };
+        
 
         static void Main()
         {
+            Warenkatalog wkatalog = new Warenkatalog();
             // Verkauf einVerkauf = new Verkauf(); // ruft leeren Konstruktor auf
-            Verkauf hierwirdeingekauft = new Verkauf("VerkaufsRaumBesondersToll", 400.0, warenkatalog);
+            Verkauf hierwirdeingekauft = new Verkauf("VerkaufsRaumBesondersToll", 400.0, ref wkatalog.warenkatalog);
             // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal);            // alle Regale
             ReadLine();
 
