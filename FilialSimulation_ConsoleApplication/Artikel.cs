@@ -47,11 +47,11 @@ namespace FilialSimulation_ConsoleApplication
 
         public Artikel(int id, Artikel[] wkatalog)
         {
-            WriteLine("Artikel {0} angelegt: ", wkatalog[id]._artikel_id);
+            // WriteLine("Artikel {0} angelegt: ", wkatalog[id]._artikel_id);
             _artikel_id = wkatalog[id]._artikel_id;
             _artikel_volumen = wkatalog[id]._artikel_volumen;
             _artikel_preis = wkatalog[id]._artikel_preis;
-            WriteLine("Der Artikel hat ein Volumen von {0:F2} und einen Preis von {1:F2}", _artikel_volumen, _artikel_preis);
+           //  WriteLine("Der Artikel hat ein Volumen von {0:F2} und einen Preis von {1:F2}", _artikel_volumen, _artikel_preis);
         }
 
 

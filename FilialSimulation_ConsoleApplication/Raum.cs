@@ -95,16 +95,33 @@ namespace FilialSimulation_ConsoleApplication
 
         public void anzeigen(Regal[] schnurzipupsregal, int von, int bis)
         {
-            
-            for (int zaehler = von; zaehler <= bis; zaehler++)
             {
-                Regal platzhalter = schnurzipupsregal[zaehler];
-                if(platzhalter.regal_aktuellerInhalt<1)
+                int startLeft = 0; int startTop = 2;
+                SetCursorPosition(startLeft, startTop);
+                ForegroundColor = Black;
+            }
+                for (int zaehler = von; zaehler <= bis; zaehler++)
                 {
-                    ForegroundColor = Red;
+                    Regal platzhalter = schnurzipupsregal[zaehler];
+                if (platzhalter.regal_aktuellerInhalt < 30)
+                {
+                    BackgroundColor = Red;
                 }
-                WriteLine("Hier ist das Regal:\t{0,3:D} : \t{1,3:D} Inhalt", schnurzipupsregal[zaehler].regal_id, schnurzipupsregal[zaehler].regal_aktuellerInhalt);
-             }
+                else
+                {
+                    BackgroundColor = Green;
+                }
+                    Write("{0,4:D}", schnurzipupsregal[zaehler].regal_id);
+                    if (zaehler % 40 == 0)
+                    {
+                        WriteLine();
+                    }
+                    if (zaehler % 80 == 0)
+                    {
+                        WriteLine();
+                        WriteLine();
+                    }
+                }
         }
     }
 

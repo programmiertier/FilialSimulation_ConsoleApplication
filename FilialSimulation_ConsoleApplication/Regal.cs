@@ -89,8 +89,8 @@ namespace FilialSimulation_ConsoleApplication
             regal_nachfuellen = regal_aktuellerInhalt > regal_kapazitaet;
             regal_aktuellerWert = regal_aktuellerInhalt * _artikel.artikel_preis;
 
-            WriteLine("Regal {0} aufgestellt mit einer Kapazität von {1} Stück", _regal_id, regal_kapazitaet);
-            WriteLine("Das Regal hat einen Wert von {0} Euro\n", regal_aktuellerWert);
+            // WriteLine("Regal {0}\t:{1} Stück", regal_id, regal_kapazitaet);
+            // WriteLine("Das Regal hat einen Wert von {0} Euro\n", regal_aktuellerWert);
         }
 
     }
