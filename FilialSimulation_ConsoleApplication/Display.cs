@@ -10,43 +10,34 @@ namespace FilialSimulation_ConsoleApplication
 {
     internal static class Display
     {
-        public static void darstellen(Regal[] schnurzipupsregal)
-        {
-            darstellen(schnurzipupsregal, 0, schnurzipupsregal.Length - 1);
-        }
-
-        public static void darstellen(Regal[] schnurzipupsregal, int einzelnesRegal)
-        {
-            darstellen(schnurzipupsregal, einzelnesRegal, einzelnesRegal);
-        }
-
         public static void darstellen(Regal[] schnurzipupsregal, int von, int bis)
         {
-            ForegroundColor = Black;
+            Clear();
+            BackgroundColor = Gray;
+            ForegroundColor = DarkGreen;
+            WriteLine("Hier kommt Regal {0} bis {1} auf den Schirm", von, bis);
             for (int zaehler = von; zaehler <= bis; zaehler++)
             {
-                Regal platzhalter = schnurzipupsregal[zaehler];
-                if (platzhalter.regal_aktuellerInhalt < 30)
-                {
-                    BackgroundColor = Red;
-                }
-                else
-                {
-                    BackgroundColor = Green;
-                }
-                Write("{0,4:D}", schnurzipupsregal[zaehler].regal_id);
+                ForegroundColor = DarkGreen;
                 if (zaehler % 40 == 0)
                 {
+                    BackgroundColor = Gray;
+                    Write(" ");
                     WriteLine();
-                    BackgroundColor = Black;
+                    Write(" ");
+                    if (zaehler % 80 == 0)
+                    {
+                        BackgroundColor = Gray;
+                        WriteLine("{0,40}", " ");
+                        Write(" ");
+                    }
                 }
-                if (zaehler % 80 == 0)
-                {
-                    BackgroundColor = Black;
-                    WriteLine();
-                    WriteLine();
-                }
+                else
+                { Write("#"); }
             }
+            BackgroundColor = Gray;
+            WriteLine(" ");
+            WriteLine("{0,41}", " ");
         }
     }
 }
