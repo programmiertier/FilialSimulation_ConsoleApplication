@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actor.cs" />
     <Compile Include="Artikel.cs" />
     <Compile Include="Display.cs" />
-    <Compile Include="katalog.cs" />
+    <Compile Include="Einkaufszettel.cs" />
+    <Compile Include="Katalog.cs" />
     <Compile Include="Kunde.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

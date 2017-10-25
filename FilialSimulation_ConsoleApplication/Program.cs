@@ -28,6 +28,10 @@ namespace FilialSimulation_ConsoleApplication
             // hierwirdeingekauft.anzeigen(hierwirdeingekauft.schnurzipupsregal, 4);   // Regal 4 nochmal zur Kontrolle aufrufen
             ReadLine();
 
+            FilialSimulation_Actor_ConsoleApplication.Actor meier = new FilialSimulation_Actor_ConsoleApplication.Actor();
+            meier.wareEntnehmen();
+
+
         }
     }
 }
