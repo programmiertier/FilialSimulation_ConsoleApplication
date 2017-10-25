@@ -7,19 +7,36 @@ using static System.Console;
 
 namespace FilialSimulation_Actor_ConsoleApplication
 {
-    internal class Actor
+    class Actor
     {
-        protected int id;
-        private static int instances = 0;
-        private string _rolle = "Actor";
-        private Einkaufszettel _einkaufsliste;
-        static public int lfrNr;
-        protected Einkaufszettel _einkaufswagen;
-
         public struct zeile
         {
             int art;
             int anz;
+
+            public zeile(int i, int j)
+            {
+                art = i;
+                anz = j;
+            }
+        }
+        static public int lfrNr;
+        protected Einkaufszettel _einkaufsliste;
+        protected Einkaufszettel _einkaufswagen;
+        protected int id;
+        private int rolle;
+
+        public Einkaufszettel einkaufsliste
+        {
+            get
+            {
+                return _einkaufsliste;
+            }
+
+            set
+            {
+
+            }
         }
 
         public Einkaufszettel einkaufswagen
@@ -35,90 +52,54 @@ namespace FilialSimulation_Actor_ConsoleApplication
             }
         }
 
-        public Einkaufszettel einkaufsliste
-        {
-            get
-            {
-                return _einkaufsliste;
-            }
-
-            set
-            {
-
-            }
-        }
-
-        /* public Actor()
-        {
-            _einkaufsliste = new Einkaufszettel();
-            instances++;
-            _id = instances;
-            if (this.GetType() == typeof(Kunde))
-            {
-                _rolle = "Kunde";
-            }
-            if (this.GetType() == typeof(Personal))
-            {
-                _rolle = "Personal";
-            }
-            if (this.GetType() == typeof(Dieb))
-            {
-                _rolle = "Dieb";
-            }
-        } */
-
         public Actor()
         {
             lfrNr++;
             _einkaufsliste = new Einkaufszettel();
-            WriteLine("Zuerst geht es durch den leeren Konstruktor vom Actor");
+            Console.WriteLine("Es wurde zuerst ein Einkaufszettel erstellt");
+
         }
 
         ~Actor()
         {
-            
+
         }
 
-        public void listeAnzeigen()
+        public void Liste_zeigen()
         {
-            // WriteLine("Person {0} hat die Rolle {1}", _id, _rolle);
-            einkaufsliste.zeigen();
-            ReadLine();
+            _einkaufsliste.zeigen();
         }
 
         public virtual void bezahlen()
         {
-            WriteLine("Der Actor zahlt für");
-            // this.listeAnzeigen();
+            Console.WriteLine("Der Actor zahlt für");
+            // this.Liste_zeigen();
         }
-        
 
-
-        public void wareEntnehmen()
+        public void wareEntnehmen(FilialSimulation_ConsoleApplication.Raum dummyregal)
         {
             Einkaufszettel einkaufswagen = new Einkaufszettel("Einkaufswagen");
-            for (int zaehler = 0; zaehler < einkaufsliste.liste.Count; zaehler++)
+            for (int zaehler = 0; zaehler < _einkaufsliste.liste.Count; zaehler++)
             {
-                
-                WriteLine("Auf dem Zettel:\t{0}\tArtikel\t\t{1,3} soll\t{2,3} mal gekauft werden", zaehler, einkaufsliste.liste[zaehler].artikel, einkaufsliste.liste[zaehler].anzahl);
-                //            if(  >  )
-                //             { // genug im Regal
+                WriteLine("Auf dem Zettel {0}: Artikel {1,3} soll {2,3} mal gekauft werden", zaehler, _einkaufsliste.liste[zaehler].artikel, _einkaufsliste.liste[zaehler].anzahl);
+                if (dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt >= _einkaufsliste.liste[zaehler].anzahl)
+                { // genug im Regal
+                    WriteLine("genug da");
+                    dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt -= _einkaufsliste.liste[zaehler].anzahl;                    // einkaufswagen.liste.Add = // wunsch
+                    einkaufswagen.liste.Add(_einkaufsliste.liste[zaehler]);
+                }
+                else
+                { // zu wenig im Regal, alles was noch da ist
+                    WriteLine("zu wenig da, Regal wird leer gemacht");
 
-                // einkaufswagen.liste.Add = // wunsch
-                // Verkauf[xx].   -= wunsch;
-                //              }
-                //              else
-                //              { // zu wenig im Regal, alles was noch da ist
-                // einkaufswagen.liste. = // Verkauf[xx].
-                // Verkauf[xx].   = 0;
-                //     
-                WriteLine("Im Wagen lfdNr:\t{0}\tArtikelNr:\t{1,3}, Anzahl:\t{2,3}", zaehler, einkaufsliste.liste[zaehler].artikel, einkaufsliste.liste[zaehler].anzahl);
-                einkaufswagen.liste.Add(_einkaufsliste.liste[zaehler]);
-                WriteLine();
+                    //   einkaufswagen.liste.Last().anzahl = r.regale[_einkaufsliste.liste[i].artikel].aktuellerInhalt;
+                    dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt = 0;
+
+                }
+                //    Console.WriteLine("Im Wagen lfdNr: {0},ArtikelNr:{1}, Anzahl:{2}", i, _einkaufsliste.liste[i].artikel, _einkaufsliste.liste[i].anzahl);
+                dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_nachfuellen = dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt <= dummyregal.regale[_einkaufsliste.liste[zaehler].artikel]._regal_mindestBestand;
             }
             WriteLine("Im Wagen sind {0} verschiedene Artikel ", einkaufswagen.liste.Count);
-            WriteLine("-----");
-            ReadLine();
         }
     }
 }

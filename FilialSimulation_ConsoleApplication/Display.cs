@@ -14,11 +14,11 @@ namespace FilialSimulation_ConsoleApplication
         {
             Clear();
             BackgroundColor = Gray;
-            ForegroundColor = DarkGreen;
+            ForegroundColor = Blue;
             WriteLine("Hier kommt Regal {0} bis {1} auf den Schirm", von, bis);
             for (int zaehler = von; zaehler <= bis; zaehler++)
             {
-                ForegroundColor = DarkGreen;
+                ForegroundColor = Blue;
                 if (zaehler % 40 == 0)
                 {
                     BackgroundColor = Gray;

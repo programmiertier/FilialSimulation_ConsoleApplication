@@ -12,7 +12,7 @@ namespace FilialSimulation_ConsoleApplication
         private double _regal_volumen = 1.0;
         private Artikel _artikel;
         private int _regal_kapazitaet;
-        private double _regal_mindestBestand; // ist die kapazitaet * 0,3
+        public double _regal_mindestBestand; // ist die kapazitaet * 0,3
         private int _regal_aktuellerInhalt;
         private bool _regal_nachfuellen;
         private double _regal_aktuellerWert;      // wie viel die aktuellen Waren, im Regal (natürlich... Peperoni) wert sind
@@ -86,7 +86,7 @@ namespace FilialSimulation_ConsoleApplication
             regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_volumen);
             _regal_mindestBestand = (int)(regal_kapazitaet * 0.3);
             regal_aktuellerInhalt = regal_kapazitaet;
-            regal_nachfuellen = regal_aktuellerInhalt > regal_kapazitaet;
+            regal_nachfuellen = regal_aktuellerInhalt <= _regal_mindestBestand;
             regal_aktuellerWert = regal_aktuellerInhalt * _artikel.artikel_preis;
 
             // WriteLine("Regal {0}\t:{1} Stück", regal_id, regal_kapazitaet);

@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace FilialSimulation_ConsoleApplication
 {
-    internal class Artikel
+    public class Artikel
     {
         private int _artikel_id;
         private double _artikel_volumen;

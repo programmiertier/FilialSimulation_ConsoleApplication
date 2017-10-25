@@ -7,25 +7,25 @@ using static System.Console;
 
 namespace FilialSimulation_Actor_ConsoleApplication
 {
-    internal class Kunde : Actor
+    internal class Dieb : Kunde
     {
-        public Kunde()
+        public Dieb()
         {
             this.id = Actor.lfrNr;
-            WriteLine("Ich bin ein Kunde und werde als {0}. aufgerufen", id);
+            WriteLine("Ich bin ein Dieb und werde als {0}. aufgerufen", id);
             this.bezahlen();
         }
-
-        ~Kunde()
+        ~Dieb()
         {
             
         }
 
         public override void bezahlen()
         {
-            WriteLine("Der Kunde zahlt");
+            WriteLine("Der hier, weil Dieb, zahlt fei gar nix");
             ReadLine();
             // this.listeAnzeigen();
         }
+
     }
 }

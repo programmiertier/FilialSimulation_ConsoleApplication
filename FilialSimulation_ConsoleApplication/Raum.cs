@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-using static System.ConsoleColor;
 
 
 namespace FilialSimulation_ConsoleApplication
@@ -15,8 +14,18 @@ namespace FilialSimulation_ConsoleApplication
         protected double _raum_flaeche;   // in qm
         protected static int _raum_anzahlRegale;
         protected bool _raum_kundenErlaubt;
+        public Regal[] _regale;
 
-        public Regal[] schnurzipupsregal = new Regal[_raum_anzahlRegale];
+        public Regal[] dummyregal = new Regal[_raum_anzahlRegale];
+
+        public Regal[] regale
+        {
+            get
+            {
+                return _regale;
+            }
+
+        }
 
         public int raum_anzahlRegale
         {
@@ -84,19 +93,19 @@ namespace FilialSimulation_ConsoleApplication
             _raum_flaeche = flaeche;
         }
 
-        public void anzeigen(Regal[] schnurzipupsregal)
+        public void anzeigen(Regal[] dummyregal)
         {
-            Display.darstellen(schnurzipupsregal, 0, schnurzipupsregal.Length - 1);
+            Display.darstellen(dummyregal, 0, dummyregal.Length - 1);
         }
 
-        public void anzeigen(Regal[] schnurzipupsregal, int einzelnesRegal)
+        public void anzeigen(Regal[] dummyregal, int einzelnesRegal)
         {
-            Display.darstellen(schnurzipupsregal, einzelnesRegal, einzelnesRegal);
+            Display.darstellen(dummyregal, einzelnesRegal, einzelnesRegal);
         }
 
-        public void anzeigen(Regal[] schnurzipupsregal, int von, int bis)
+        public void anzeigen(Regal[] dummyregal, int von, int bis)
         {
-            Display.darstellen(schnurzipupsregal, von, bis);
+            Display.darstellen(dummyregal, von, bis);
         }
     }
 
@@ -120,10 +129,10 @@ namespace FilialSimulation_ConsoleApplication
             _raum_kundenErlaubt = true;
             raum_anzahlRegale = (int)(flaeche / 0.5);
 
-            schnurzipupsregal = new Regal[wkatalog.Length];
+            dummyregal = new Regal[wkatalog.Length];
             for(int zaehler = 0; zaehler < wkatalog.Length; zaehler++)
             {
-                schnurzipupsregal[zaehler] = new Regal(zaehler, wkatalog);
+                dummyregal[zaehler] = new Regal(zaehler, wkatalog);
             }
         }
     }

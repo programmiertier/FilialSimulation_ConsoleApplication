@@ -13,7 +13,7 @@
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AaACAAAAAAABAAAAAAAEACBAAAAAAAAAAACAAAAAQAA=</HashCode>
+      <HashCode>QaACAAAAAAABQAAAAAAEACBAAAAAAAAAAACAAAAAQAA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -32,17 +32,59 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_ConsoleApplication.Lager">
-    <Position X="6.25" Y="4.5" Width="1.5" />
+    <Position X="6.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FilialSimulation_ConsoleApplication.Kunde" Collapsed="true">
-    <Position X="4.5" Y="1.5" Width="1.5" />
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Actor" Collapsed="true">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAADgACAAAAAAABBAAAAAAAAAAAAAAoA=</HashCode>
+      <FileName>Actor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Dieb" Collapsed="true">
+    <Position X="6" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Dieb.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Kunde" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Kunde.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Personal" Collapsed="true">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Personal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Einkaufszettel">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="FilialSimulation_Actor_ConsoleApplication.Einkaufszettel.zeile" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Einkaufszettel.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Einkaufszettel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Kasse">
+    <Position X="13.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Kunde.cs</FileName>
+      <FileName>Kasse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

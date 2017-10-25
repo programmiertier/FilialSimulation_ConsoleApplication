@@ -7,23 +7,22 @@ using static System.Console;
 
 namespace FilialSimulation_Actor_ConsoleApplication
 {
-    internal class Kunde : Actor
+    internal class Personal : Actor
     {
-        public Kunde()
+        public Personal()
         {
             this.id = Actor.lfrNr;
-            WriteLine("Ich bin ein Kunde und werde als {0}. aufgerufen", id);
+            WriteLine("Ich bin Personal und werde als {0}. aufgerufen", id);
             this.bezahlen();
         }
-
-        ~Kunde()
+        ~Personal()
         {
             
         }
 
         public override void bezahlen()
         {
-            WriteLine("Der Kunde zahlt");
+            WriteLine("Das Personal zahlt mit Rabatt");
             ReadLine();
             // this.listeAnzeigen();
         }
