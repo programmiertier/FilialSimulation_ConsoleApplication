@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FilialSimulation_ConsoleApplication.Artikel" Collapsed="true">
+  <Class Name="FilialSimulation_ConsoleApplication.FilialSimulation_ConsoleApplication.Artikel" Collapsed="true">
     <Position X="12.5" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAgAAQAAAAgAAAIAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>Artikel.cs</FileName>
+      <FileName>FilialSimulation_ConsoleApplication.Artikel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_ConsoleApplication.Raum">
@@ -13,7 +13,7 @@
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>QaACAAAAAAABQAAAAAAEACBAAAAAAAAAAACAAAAAQAA=</HashCode>
+      <HashCode>QQACAAAAAAABQAAAAAAEACBAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -27,7 +27,7 @@
   <Class Name="FilialSimulation_ConsoleApplication.Verkauf">
     <Position X="10.5" Y="4.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -39,35 +39,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Actor" Collapsed="true">
-    <Position X="4.25" Y="2" Width="1.5" />
+    <Position X="3.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAADgACAAAAAAABBAAAAAAAAAAAAAAoA=</HashCode>
+      <HashCode>AAAAQAAAAAAAAADgACAAAAAAABBAAAAAAAACAAAAAoA=</HashCode>
       <FileName>Actor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Dieb" Collapsed="true">
-    <Position X="6" Y="3" Width="1.5" />
+    <Position X="6" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Dieb.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Kunde" Collapsed="true">
-    <Position X="4.75" Y="4.25" Width="1.5" />
+    <Position X="5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Kunde.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Personal" Collapsed="true">
-    <Position X="1.25" Y="4" Width="1.5" />
+    <Position X="1.75" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Personal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Einkaufszettel">
-    <Position X="1.25" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <NestedTypes>
       <Struct Name="FilialSimulation_Actor_ConsoleApplication.Einkaufszettel.zeile" Collapsed="true">
         <TypeIdentifier>
@@ -83,7 +83,7 @@
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Kasse">
     <Position X="13.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAQAAAAAAAIAAAAAAAABAAAQAQAAABAAAAAA=</HashCode>
       <FileName>Kasse.cs</FileName>
     </TypeIdentifier>
   </Class>

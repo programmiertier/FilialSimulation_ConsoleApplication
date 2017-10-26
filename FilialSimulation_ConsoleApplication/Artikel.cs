@@ -16,7 +16,7 @@ namespace FilialSimulation_ConsoleApplication
         {
             get
             {
-                return _artikel_preis;
+                return artikel_preis;
             }
         }
 
@@ -28,7 +28,7 @@ namespace FilialSimulation_ConsoleApplication
             }
         }
 
-        public int artikel_id
+        public int Artikel_id
         {
             get
             {
@@ -42,22 +42,22 @@ namespace FilialSimulation_ConsoleApplication
 
         public Artikel()
         {
-            //  WriteLine("Artikel  angelegt:");
+            //  WriteLine("FilialSimulation_ConsoleApplication.Artikel  angelegt:");
         }
 
         public Artikel(int id, Artikel[] wkatalog)
         {
-            // WriteLine("Artikel {0} angelegt: ", wkatalog[id]._artikel_id);
+            // WriteLine("FilialSimulation_ConsoleApplication.Artikel {0} angelegt: ", wkatalog[id]._FilialSimulation_ConsoleApplication.Artikel_id);
             _artikel_id = wkatalog[id]._artikel_id;
             _artikel_volumen = wkatalog[id]._artikel_volumen;
             _artikel_preis = wkatalog[id]._artikel_preis;
-           //  WriteLine("Der Artikel hat ein Volumen von {0:F2} und einen Preis von {1:F2}", _artikel_volumen, _artikel_preis);
+           //  WriteLine("Der FilialSimulation_ConsoleApplication.Artikel hat ein Volumen von {0:F2} und einen Preis von {1:F2}", _FilialSimulation_ConsoleApplication.Artikel_volumen, _FilialSimulation_ConsoleApplication.Artikel_preis);
         }
 
 
         public Artikel(int id, double volumen, double preis)
         {
-            // WriteLine("Artikel wurde {0} angelegt: ", id);
+            // WriteLine("FilialSimulation_ConsoleApplication.Artikel wurde {0} angelegt: ", id);
             _artikel_id = id;
             _artikel_preis = preis;
             _artikel_volumen = volumen;

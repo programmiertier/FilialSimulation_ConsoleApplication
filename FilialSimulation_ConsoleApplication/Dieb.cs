@@ -13,14 +13,14 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             this.id = Actor.lfrNr;
             WriteLine("Ich bin ein Dieb und werde als {0}. aufgerufen", id);
-            this.bezahlen();
+            
         }
         ~Dieb()
         {
             
         }
 
-        public override void bezahlen()
+        public override void bezahlen(ref Kasse ks)
         {
             WriteLine("Der hier, weil Dieb, zahlt fei gar nix");
             ReadLine();

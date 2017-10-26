@@ -13,6 +13,14 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             public int artikel;
             public int anzahl;
+            private int eins;
+            private int regal_aktuellerInhalt;
+
+            public zeile(int eins, int regal_aktuellerInhalt) : this()
+            {
+                this.artikel = eins;
+                this.anzahl = regal_aktuellerInhalt;
+            }
         }
 
         public List<zeile> liste = new List<zeile>();
@@ -34,7 +42,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             foreach (zeile platzhalter in liste)
             {
-                WriteLine("Artikel Nummer {0} ist {1} mal auf der Liste", platzhalter.artikel, platzhalter.anzahl);
+                WriteLine("FilialSimulation_ConsoleApplication.Artikel {0} ist {1}mal auf der Liste", platzhalter.artikel, platzhalter.anzahl);
             }
         }
     }
