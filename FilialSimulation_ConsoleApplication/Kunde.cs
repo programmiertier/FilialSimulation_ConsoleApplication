@@ -23,7 +23,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
         public override void bezahlen(ref Kasse ks)
         {
             WriteLine("Der Kunde zahlt den offiziellen Preis");
-            WriteLine("{0,6:F2} Euro", ks.kunde_abrechnen(einkaufswagen));
+            WriteLine("der offizielle Preis beträgt:\t{0,6:F2} Euro", ks.kunde_abrechnen(einkaufswagen));
             ReadLine();
             // this.listeAnzeigen();
         }

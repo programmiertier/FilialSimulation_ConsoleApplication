@@ -35,7 +35,6 @@ namespace FilialSimulation_Actor_ConsoleApplication
                 WriteLine("Artikel {0,3}, {1,3}mal Einzelpreis:{2,4:F2} Euro", ekw.liste[zaehler].artikel, ekw.liste[zaehler].anzahl, Warenkatalog.warenkatalog[zaehler].artikel_preis);
                 kunde_umsatz += ekw.liste[zaehler].anzahl * Warenkatalog.warenkatalog[zaehler].artikel_preis+2.5;
             }   // if(this.)
-            WriteLine(kunde_umsatz);
             tages_umsatz += kunde_umsatz;
             return kunde_umsatz;    // Kasse meldet den Actor den Preis
         }
@@ -47,7 +46,15 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
         public Einkaufszettel fehlbestand_anzeigen()
         {
-            return new Einkaufszettel();
+            // über alle Regale wandern und jedes mit 'nachfüllen' = true
+            // in die Fehlliste eintragen
+
+            // for oder foreach (==true)
+
+            // fehldende Menge zum Maximalbestand
+
+            // max - rest
+            return new Einkaufszettel("Fehlliste");
         }
     }
 }
