@@ -14,10 +14,10 @@ namespace FilialSimulation_Actor_ConsoleApplication
             int art;
             int anz;
 
-            public zeile(int i, int j)
+            public zeile(int eins, int zwei)
             {
-                art = i;
-                anz = j;
+                art = eins;
+                anz = zwei;
             }
         }
         static public int lfrNr;
@@ -35,7 +35,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
             set
             {
-
+                _einkaufsliste = value;
             }
         }
 
@@ -56,8 +56,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             lfrNr++;
             _einkaufsliste = new Einkaufszettel();
-            Console.WriteLine("Es wurde zuerst ein Einkaufszettel erstellt");
-
+            WriteLine("Es wurde zuerst ein Einkaufszettel erstellt");
         }
 
         ~Actor()
@@ -76,16 +75,16 @@ namespace FilialSimulation_Actor_ConsoleApplication
             // this.Liste_zeigen();
         }
 
-        public void wareEntnehmen(FilialSimulation_ConsoleApplication.Raum dummyregal)
+        public void wareEntnehmen(FilialSimulation_ConsoleApplication.Raum verkaufenderRaum)
         {
-            Einkaufszettel einkaufswagen = new Einkaufszettel("Einkaufswagen");
+            Einkaufszettel einkaufswagen = new Einkaufszettel("Einkaufswagen");     // wird durch set vom _einkaufswagen durchlaufen
             for (int zaehler = 0; zaehler < _einkaufsliste.liste.Count; zaehler++)
             {
                 WriteLine("Auf dem Zettel {0}: Artikel {1,3} soll {2,3} mal gekauft werden", zaehler, _einkaufsliste.liste[zaehler].artikel, _einkaufsliste.liste[zaehler].anzahl);
-                if (dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt >= _einkaufsliste.liste[zaehler].anzahl)
+                if (verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt >= _einkaufsliste.liste[zaehler].anzahl)
                 { // genug im Regal
                     WriteLine("genug da");
-                    dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt -= _einkaufsliste.liste[zaehler].anzahl;                    // einkaufswagen.liste.Add = // wunsch
+                    verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt -= _einkaufsliste.liste[zaehler].anzahl;                    // einkaufswagen.liste.Add = // wunsch
                     einkaufswagen.liste.Add(_einkaufsliste.liste[zaehler]);
                 }
                 else
@@ -93,11 +92,11 @@ namespace FilialSimulation_Actor_ConsoleApplication
                     WriteLine("zu wenig da, Regal wird leer gemacht");
 
                     //   einkaufswagen.liste.Last().anzahl = r.regale[_einkaufsliste.liste[i].artikel].aktuellerInhalt;
-                    dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt = 0;
+                    verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt = 0;
 
                 }
                 //    Console.WriteLine("Im Wagen lfdNr: {0},ArtikelNr:{1}, Anzahl:{2}", i, _einkaufsliste.liste[i].artikel, _einkaufsliste.liste[i].anzahl);
-                dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_nachfuellen = dummyregal.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt <= dummyregal.regale[_einkaufsliste.liste[zaehler].artikel]._regal_mindestBestand;
+                verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_nachfuellen = verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt <= verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel]._regal_mindestBestand;
             }
             WriteLine("Im Wagen sind {0} verschiedene Artikel ", einkaufswagen.liste.Count);
         }

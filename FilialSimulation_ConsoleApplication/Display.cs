@@ -10,15 +10,15 @@ namespace FilialSimulation_ConsoleApplication
 {
     internal static class Display
     {
-        public static void darstellen(Regal[] schnurzipupsregal, int von, int bis)
+        public static void darstellen(Regal[] dasRegal, int von, int bis)
         {
-            Clear();
+            // Clear();
             BackgroundColor = Gray;
-            ForegroundColor = Blue;
+            ForegroundColor = Green;
             WriteLine("Hier kommt Regal {0} bis {1} auf den Schirm", von, bis);
             for (int zaehler = von; zaehler <= bis; zaehler++)
             {
-                ForegroundColor = Blue;
+                ForegroundColor = Black;
                 if (zaehler % 40 == 0)
                 {
                     BackgroundColor = Gray;
@@ -33,7 +33,17 @@ namespace FilialSimulation_ConsoleApplication
                     }
                 }
                 else
-                { Write("#"); }
+                {
+                    BackgroundColor = Green;
+                    if (dasRegal[zaehler].regal_nachfuellen)
+                    {
+                        BackgroundColor = Red;
+                        Write("!");
+                        BackgroundColor = Green;
+                    }
+                    else
+                    { Write("#"); }
+                }
             }
             BackgroundColor = Gray;
             WriteLine(" ");

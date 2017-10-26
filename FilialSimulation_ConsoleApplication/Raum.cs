@@ -5,25 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
 
-
 namespace FilialSimulation_ConsoleApplication
+
 {
     internal class Raum
     {
+        protected int _raum_anzahlRegale;
         protected string _raum_bezeichnung;
-        protected double _raum_flaeche;   // in qm
-        protected static int _raum_anzahlRegale;
+        protected double _raum_flaeche;
         protected bool _raum_kundenErlaubt;
-        public Regal[] _regale;
+        protected Regal[] _regale;
 
-        public Regal[] dummyregal = new Regal[_raum_anzahlRegale];
-
-        public Regal[] regale
+        public Raum()
         {
-            get
-            {
-                return _regale;
-            }
+
+        }
+
+        public Raum(string b, double flaeche)
+        {
+            raum_bezeichnung = b;
+            _raum_flaeche = flaeche;
 
         }
 
@@ -46,69 +47,33 @@ namespace FilialSimulation_ConsoleApplication
             {
                 return _raum_bezeichnung;
             }
-
             set
             {
                 _raum_bezeichnung = value;
             }
         }
 
-        public double raum_flaeche
+        public Regal[] regale
         {
             get
             {
-                return _raum_flaeche;
+                return _regale;
             }
 
-            set
-            {
-                _raum_flaeche = value;
-            }
         }
 
-        public bool raum_kundenErlaubt
-        {
-            get
-            {
-                return _raum_kundenErlaubt;
-            }
-            set
-            {
-                _raum_kundenErlaubt = value;
-                if (value == true)
-                { Write("erlaubt"); }
-                else
-                { Write("nicht erlaubt"); }
-            }
-        }
+        public void anzeigen(Regal[] platzhalterregal)
+        { anzeigen(platzhalterregal, 0, platzhalterregal.Length - 1); }
 
-        public Raum()
-        {
+        public void anzeigen(Regal[] platzhalterregal, int einzelnesRegal)
+        { anzeigen(platzhalterregal, einzelnesRegal, einzelnesRegal); }
 
-        }
-
-        public Raum(string b, double flaeche)
+        public void anzeigen(Regal[] platzhalterregal, int von, int bis)
         {
-            _raum_bezeichnung = b;
-            _raum_flaeche = flaeche;
-        }
+            Display.darstellen(platzhalterregal, von, bis);
 
-        public void anzeigen(Regal[] dummyregal)
-        {
-            Display.darstellen(dummyregal, 0, dummyregal.Length - 1);
-        }
-
-        public void anzeigen(Regal[] dummyregal, int einzelnesRegal)
-        {
-            Display.darstellen(dummyregal, einzelnesRegal, einzelnesRegal);
-        }
-
-        public void anzeigen(Regal[] dummyregal, int von, int bis)
-        {
-            Display.darstellen(dummyregal, von, bis);
         }
     }
-
     internal class Verkauf : Raum
     {
         private int _anzahlKunden;
@@ -118,36 +83,36 @@ namespace FilialSimulation_ConsoleApplication
 
         }
 
-        /* public Verkauf(string b, double flaeche) : base(b, flaeche)
+        public Verkauf(string b, double flaeche, Artikel[] wkatalog) : base(b, flaeche)
         {
             _raum_kundenErlaubt = true;
             raum_anzahlRegale = (int)(flaeche / 0.5);
-        } */
-
-        public Verkauf(string b, double flaeche, ref Artikel[] wkatalog) : base(b, flaeche)
+            _regale = new Regal[wkatalog.Length];
+            for (int zaehler = 0; zaehler < wkatalog.Length /*anzahlRegale */; zaehler++)
+            { _regale[zaehler] = new Regal(zaehler, wkatalog); }
+        }
+        public int anzahlKunden
         {
-            _raum_kundenErlaubt = true;
-            raum_anzahlRegale = (int)(flaeche / 0.5);
-
-            dummyregal = new Regal[wkatalog.Length];
-            for(int zaehler = 0; zaehler < wkatalog.Length; zaehler++)
+            get
             {
-                dummyregal[zaehler] = new Regal(zaehler, wkatalog);
+                return _anzahlKunden;
+            }
+
+            set
+            {
             }
         }
     }
-
     internal class Lager : Raum
     {
         public Lager()
         {
 
         }
-
-        /*public Lager(string b, double flaeche) : base(b, flaeche)
+        public Lager(string b, double flaeche) : base(b, flaeche)
         {
             _raum_kundenErlaubt = false;
-            raum_anzahlRegale = (int)(flaeche / 0.5);
-        }*/
+            raum_anzahlRegale = (int)(flaeche / 0.33);
+        }
     }
 }
