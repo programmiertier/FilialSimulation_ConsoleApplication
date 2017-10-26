@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="FilialSimulation_ConsoleApplication.FilialSimulation_ConsoleApplication.Artikel" Collapsed="true">
-    <Position X="12.5" Y="0.5" Width="3" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAQAAAgAAQAAAAgAAAIAAAAAABAAAAAAAAAAAA=</HashCode>
-      <FileName>FilialSimulation_ConsoleApplication.Artikel.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="FilialSimulation_ConsoleApplication.Raum">
     <Position X="8.25" Y="0.5" Width="2.25" />
     <Compartments>

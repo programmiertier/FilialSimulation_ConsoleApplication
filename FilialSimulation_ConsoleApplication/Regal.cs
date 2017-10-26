@@ -79,11 +79,11 @@ namespace FilialSimulation_ConsoleApplication
 
         }
         
-        public Regal(int id, FilialSimulation_ConsoleApplication.Artikel[] wkatalog)
+        public Regal(int id, Artikel[] wkatalog)
         {
             _regal_id = id;
             _artikel = new Artikel(_regal_id, wkatalog);
-            regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_preis);
+            _regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_volumen);
             _regal_mindestBestand = (int)(regal_kapazitaet * 0.3);
             regal_aktuellerInhalt = regal_kapazitaet;
             regal_nachfuellen = regal_aktuellerInhalt <= _regal_mindestBestand;

@@ -14,12 +14,12 @@ namespace FilialSimulation_Actor_ConsoleApplication
             public int artikel;
             public int anzahl;
             private int eins;
-            private int regal_aktuellerInhalt;
+            private int aktuellerInhalt;
 
-            public zeile(int eins, int regal_aktuellerInhalt) : this()
+            public zeile(int eins, int aktuellerInhalt) : this()
             {
-                this.artikel = eins;
-                this.anzahl = regal_aktuellerInhalt;
+                this.eins = eins;
+                this.aktuellerInhalt = aktuellerInhalt;
             }
         }
 
@@ -27,10 +27,10 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
         public Einkaufszettel()
         {
-            Random zufall = new Random(42);     //(Actor.lfrNr);        // wenn Klasse Actor noch nicht ins Projekt übernommen wurde
-            int bis = zufall.Next(1, 10);
+            Random zufall = new Random(Actor.lfrNr);     //(Actor.lfrNr);        // wenn Klasse Actor noch nicht ins Projekt übernommen wurde
+            int bis = zufall.Next(1, 11);
             for (int von = 1; von <= bis; von++)
-            { liste.Add(new zeile() { artikel = zufall.Next(1, 800), anzahl = zufall.Next(4, 10) }); }
+            { liste.Add(new zeile() { artikel = zufall.Next(1, 800), anzahl = zufall.Next(1, 100) }); }
         }
 
         public Einkaufszettel(string irgendwas)
@@ -42,7 +42,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             foreach (zeile platzhalter in liste)
             {
-                WriteLine("FilialSimulation_ConsoleApplication.Artikel {0} ist {1}mal auf der Liste", platzhalter.artikel, platzhalter.anzahl);
+                WriteLine("Artikel {0} ist {1}mal auf der Liste", platzhalter.artikel, platzhalter.anzahl);
             }
         }
     }

@@ -13,7 +13,6 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             this.id = Actor.lfrNr;
             WriteLine("Ich bin ein Kunde und werde als {0}. aufgerufen", id);
-            
         }
 
         ~Kunde()
@@ -23,8 +22,8 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
         public override void bezahlen(ref Kasse ks)
         {
-            WriteLine("Der Kunde zahlt");
-            WriteLine("von {0,6:F2 Euro", ks.kunde_abrechnen(einkaufswagen)*1);
+            WriteLine("Der Kunde zahlt den offiziellen Preis");
+            WriteLine("{0,6:F2} Euro", ks.kunde_abrechnen(einkaufswagen));
             ReadLine();
             // this.listeAnzeigen();
         }

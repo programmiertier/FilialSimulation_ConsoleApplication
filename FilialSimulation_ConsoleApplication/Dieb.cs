@@ -13,8 +13,8 @@ namespace FilialSimulation_Actor_ConsoleApplication
         {
             this.id = Actor.lfrNr;
             WriteLine("Ich bin ein Dieb und werde als {0}. aufgerufen", id);
-            
         }
+
         ~Dieb()
         {
             
