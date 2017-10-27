@@ -28,6 +28,17 @@ namespace FilialSimulation_ConsoleApplication
                 _regal_id = value;
             }
         }
+        public int regal_kapazitaet
+        {
+            get
+            {
+                return _regal_kapazitaet;
+            }
+            set
+            {
+                _regal_kapazitaet = value;
+            }
+        }
 
         public int regal_aktuellerInhalt
         {
@@ -63,17 +74,7 @@ namespace FilialSimulation_ConsoleApplication
                 _regal_nachfuellen = value;
             }
         }
-        public int regal_kapazitaet
-        {
-            get
-            {
-                return _regal_kapazitaet;
-            }
-            set
-            {
-                _regal_kapazitaet = value;
-            }
-        }
+        
         public Regal()
         {
 
@@ -84,8 +85,8 @@ namespace FilialSimulation_ConsoleApplication
             _regal_id = id;
             _artikel = new Artikel(_regal_id, wkatalog);
             _regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_volumen);
-            _regal_mindestBestand = (int)(regal_kapazitaet * 0.3);
-            regal_aktuellerInhalt = regal_kapazitaet;
+            _regal_mindestBestand = (int)(_regal_kapazitaet * 0.3);
+            regal_aktuellerInhalt = _regal_kapazitaet;
             regal_nachfuellen = regal_aktuellerInhalt <= _regal_mindestBestand;
             regal_aktuellerWert = regal_aktuellerInhalt * _artikel.artikel_preis;
 

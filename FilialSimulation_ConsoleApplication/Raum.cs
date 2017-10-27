@@ -91,6 +91,7 @@ namespace FilialSimulation_ConsoleApplication
             for (int zaehler = 0; zaehler < wkatalog.Length /*anzahlRegale */; zaehler++)
             { _regale[zaehler] = new Regal(zaehler, wkatalog); }
         }
+
         public int anzahlKunden
         {
             get
@@ -103,16 +104,21 @@ namespace FilialSimulation_ConsoleApplication
             }
         }
     }
+
     internal class Lager : Raum
     {
         public Lager()
         {
 
         }
-        public Lager(string b, double flaeche) : base(b, flaeche)
+
+        public Lager(string b, double flaeche, ref Artikel[] lagerkatalog) : base(b, flaeche)
         {
             _raum_kundenErlaubt = false;
             raum_anzahlRegale = (int)(flaeche / 0.33);
+            _regale = new Regal[lagerkatalog.Length];
+            for (int zaehler = 0; zaehler < lagerkatalog.Length /* anzahlRegale */; zaehler++)
+            { _regale[zaehler] = new Regal(zaehler, lagerkatalog); }
         }
     }
 }

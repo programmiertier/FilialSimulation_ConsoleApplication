@@ -22,11 +22,11 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
         public override void bezahlen(ref Kasse ks)
         {
-            WriteLine("Das Personal zahlt mit Rabatt");
+            WriteLine("Das Personal zahlt mit 10% Rabatt");
             double origPreis, reduzPreis;
             origPreis = ks.kunde_abrechnen(einkaufswagen);
-            reduzPreis = origPreis * .7;
-            WriteLine("statt {0,6:F2} nur {1,6:F2} Euro", origPreis, reduzPreis);
+            reduzPreis = origPreis * 0.9;
+            WriteLine("statt:\t{0,6:F2} nur:\t{1,6:F2} Euro", origPreis, reduzPreis);
             // this.listeAnzeigen();
         }
     }

@@ -81,7 +81,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
             Einkaufszettel einkaufswagen = new Einkaufszettel("Einkaufswagen");
             for (int zaehler = 0; zaehler < _einkaufsliste.liste.Count; zaehler++)
             {
-                WriteLine("Auf dem Zettel{0} Artikel {1,3} soll {2,3} mal gekauft werden", zaehler, _einkaufsliste.liste[zaehler].artikel, _einkaufsliste.liste[zaehler].anzahl);
+                WriteLine("Auf dem Zettel:{0}, Artikel:\t{1,3} soll \t{2,3} mal gekauft werden", zaehler, _einkaufsliste.liste[zaehler].artikel, _einkaufsliste.liste[zaehler].anzahl);
                 if (verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt >= _einkaufsliste.liste[zaehler].anzahl)
                 { // genug im Regal
                     WriteLine("genug da");
@@ -90,7 +90,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
                 }
                 else
                 { // zu wenig im Regal, alles was noch da ist
-                    Console.WriteLine("zu wenig da, Regal wird leer gemacht");
+                    WriteLine("zu wenig da, Regal wird leer gemacht");
                     einkaufswagen.liste.Add(new Einkaufszettel.zeile(zaehler, verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt));
                     verkaufenderRaum.regale[_einkaufsliste.liste[zaehler].artikel].regal_aktuellerInhalt = 0;
                     //          einkaufswagen.liste.Add(new Einkaufszettel.zeile(i, r.regale[_einkaufsliste.liste[i].artikel].aktuellerInhalt));

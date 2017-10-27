@@ -11,49 +11,49 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_ConsoleApplication.Regal" Collapsed="true">
-    <Position X="12.5" Y="1.5" Width="3" />
+    <Position X="12.5" Y="0.5" Width="3" />
     <TypeIdentifier>
       <HashCode>AEAEAQAEgAAAAAAAgASAAAgAAIAAAAAACAAACAAAAQA=</HashCode>
       <FileName>Regal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FilialSimulation_ConsoleApplication.Verkauf">
-    <Position X="10.5" Y="4.5" Width="2" />
+  <Class Name="FilialSimulation_ConsoleApplication.Verkauf" Collapsed="true">
+    <Position X="10.75" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FilialSimulation_ConsoleApplication.Lager">
-    <Position X="6.25" Y="5.5" Width="1.5" />
+  <Class Name="FilialSimulation_ConsoleApplication.Lager" Collapsed="true">
+    <Position X="6.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Raum.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Actor" Collapsed="true">
-    <Position X="3.75" Y="1" Width="1.5" />
+    <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAQAAAAAAAAADgACAAAAAAABBAAAAAAAACAAAAAoA=</HashCode>
       <FileName>Actor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Dieb" Collapsed="true">
-    <Position X="6" Y="2" Width="1.5" />
+    <Position X="4.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Dieb.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Kunde" Collapsed="true">
-    <Position X="5" Y="3.75" Width="1.5" />
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Kunde.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Personal" Collapsed="true">
-    <Position X="1.75" Y="3" Width="1.5" />
+    <Position X="2" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
       <FileName>Personal.cs</FileName>
@@ -74,10 +74,17 @@
     </TypeIdentifier>
   </Class>
   <Class Name="FilialSimulation_Actor_ConsoleApplication.Kasse">
-    <Position X="13.5" Y="2.5" Width="1.5" />
+    <Position X="14" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAQAAAAAAAIAAAAAAAABAAAQAQAAABAAAAAA=</HashCode>
+      <HashCode>AAAgAAAAAQAAAAAAAAAAAAAAAABAAAQAQAAABAAAAAA=</HashCode>
       <FileName>Kasse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilialSimulation_Actor_ConsoleApplication.Lagerist">
+    <Position X="1.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lagerist.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
