@@ -80,9 +80,10 @@ namespace FilialSimulation_ConsoleApplication
 
         }
         
-        public Regal(int id, Artikel[] wkatalog)
+        public Regal(int id, Artikel[] wkatalog, double vol)
         {
             _regal_id = id;
+            _regal_volumen = vol;
             _artikel = new Artikel(_regal_id, wkatalog);
             _regal_kapazitaet = (int)(_regal_volumen / _artikel.artikel_volumen);
             _regal_mindestBestand = (int)(_regal_kapazitaet * 0.3);

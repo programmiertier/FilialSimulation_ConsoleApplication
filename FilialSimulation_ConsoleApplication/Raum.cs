@@ -89,7 +89,9 @@ namespace FilialSimulation_ConsoleApplication
             raum_anzahlRegale = (int)(flaeche / 0.5);
             _regale = new Regal[wkatalog.Length];
             for (int zaehler = 0; zaehler < wkatalog.Length /*anzahlRegale */; zaehler++)
-            { _regale[zaehler] = new Regal(zaehler, wkatalog); }
+            {
+                _regale[zaehler] = new Regal(zaehler, wkatalog, 1.0);
+            }
         }
 
         public int anzahlKunden
@@ -118,7 +120,10 @@ namespace FilialSimulation_ConsoleApplication
             raum_anzahlRegale = (int)(flaeche / 0.33);
             _regale = new Regal[lagerkatalog.Length];
             for (int zaehler = 0; zaehler < lagerkatalog.Length /* anzahlRegale */; zaehler++)
-            { _regale[zaehler] = new Regal(zaehler, lagerkatalog); }
+            {
+                _regale[zaehler] = new Regal(zaehler, lagerkatalog, 0.33);
+            }
+            WriteLine("Lager wurde erstellt");
         }
     }
 }

@@ -49,18 +49,20 @@ namespace FilialSimulation_Actor_ConsoleApplication
             return new Einkaufszettel();
         }
 
-        public void /* Einkaufszettel */ fehlbestand_anzeigen(FilialSimulation_ConsoleApplication.Raum verkaufdort)        // was im Regal fehlt, um wieder voll zu sein
+        public  Einkaufszettel fehlbestand_anzeigen(FilialSimulation_ConsoleApplication.Raum verkaufdort)        // was im Regal fehlt, um wieder voll zu sein
         {
             // über alle Regale wandern und jedes mit 'nachfüllen' = true
             // in die Fehlliste eintragen
 
             // for oder foreach (==true)
+            Einkaufszettel arbeitsliste = new Einkaufszettel("Fehlliste");
             for (int zaehler = 0; zaehler < verkaufdort.regale.Length; zaehler ++)
             {
                 if (verkaufdort.regale[zaehler].regal_nachfuellen == true)
                 {
-                    WriteLine("Regal{0} muss aufgefüllt werden", zaehler);
-                    WriteLine("Es fehlen zur maximalen Füllung {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
+                    // WriteLine("Regal{0} muss aufgefüllt werden", zaehler);
+                    // WriteLine("Es fehlen zur maximalen Füllung {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
+                    arbeitsliste.liste.Add(new Einkaufszettel.zeile() { artikel = zaehler, anzahl = verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt });
 
                 }
             }
@@ -69,6 +71,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
             // max - rest
             // return new Einkaufszettel("Fehlliste");
+            return arbeitsliste;
         }
     }
 }
