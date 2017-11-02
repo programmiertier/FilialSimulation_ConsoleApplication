@@ -58,19 +58,32 @@ namespace FilialSimulation_Actor_ConsoleApplication
             // in die Fehlliste eintragen
 
             // for oder foreach (==true)
+            WriteLine("kasse.fehlbestand_anzeigen(namedesraums)");
             Einkaufszettel arbeitsliste = new Einkaufszettel("Fehlliste");
-            for (int zaehler = 0; zaehler < verkaufdort.regale.Length; zaehler ++)
+            /* for (int zaehler = 0; zaehler < verkaufdort.regale.Length; zaehler ++)
             {
                 if (verkaufdort.regale[zaehler].regal_nachfuellen == true)
                 {
                     // WriteLine("Regal{0} muss aufgefüllt werden", zaehler);
                     // WriteLine("Es fehlen zur maximalen Füllung {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
-                    WriteLine(" Regal {0} muss aufgefüllt werden ", zaehler);
-                    WriteLine(" Es fehlen zum Maximalbestand {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
+                    WriteLine("Regal {0} muss gefüllt werden ", zaehler);
+                    WriteLine("Es fehlt zum Maximalbestand {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
                     arbeitsliste.liste.Add(new Einkaufszettel.zeile() { artikel = zaehler, anzahl = verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt });
                 }
-            }
+            } */
 
+            var fehlliste = from inhalt in verkaufdort.regale
+                            where inhalt.regal_nachfuellen
+                            select new
+                            {
+                                id = inhalt.regal_id,
+                                menge = inhalt.regal_kapazitaet - inhalt.regal_aktuellerInhalt
+                            };
+
+            foreach(var item in fehlliste)
+            { arbeitsliste.liste.Add(new Einkaufszettel.zeile(item.id, item.menge));
+                WriteLine("Artikel: {0,4}, fehlt {1,3} mal", item.id, item.menge);
+            }
             // fehldende Menge zum Maximalbestand
 
             // max - rest

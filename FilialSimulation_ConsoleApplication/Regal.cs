@@ -95,5 +95,17 @@ namespace FilialSimulation_ConsoleApplication
             // WriteLine("Das Regal hat einen Wert von {0} Euro\n", regal_aktuellerWert);
         }
 
+        public int[] fehlend(Raum blabla)
+        {
+            var fehltwas = from inhalt in blabla.regale
+                           where _regal_nachfuellen == true
+                           select _regal_id;
+            foreach (int item in fehltwas)
+            {
+                WriteLine("{0}", item);
+            }
+            return fehltwas as int[];
+        }
+
     }
 }
