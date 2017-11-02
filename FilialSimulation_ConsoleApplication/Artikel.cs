@@ -20,6 +20,14 @@
         }
     }
 
+    public int artikel_id
+    {
+        get
+        {
+            return _artikel_id;
+        }
+    }
+
 
 
     public Artikel()

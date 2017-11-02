@@ -15,23 +15,26 @@ namespace FilialSimulation_ConsoleApplication
             Lager lager = new Lager("gemeinsamer Keller in Ossendorf", 240.0, ref Warenkatalog.warenkatalog);
             WriteLine("Hier kommt der Keller");
             lager.anzeigen(lager.regale);
+            kasse.warenwertAnzeigen(lager);
             ReadLine();
             WriteLine("-----");
             WriteLine("Hier kommt der Verkaufsraum");
             WriteLine("-----");
+            hierwirdeingekauft.anzeigen(hierwirdeingekauft.regale);
+            kasse.warenwertAnzeigen(hierwirdeingekauft);
             ReadLine();
-            hierwirdeingekauft.anzeigen(hierwirdeingekauft.regale);            // alle Regale
             FilialSimulation_Actor_ConsoleApplication.Kunde friedrich = new FilialSimulation_Actor_ConsoleApplication.Kunde();
             friedrich.einkaufswagen = friedrich.wareEntnehmen(hierwirdeingekauft);
             friedrich.bezahlen(ref kasse);
             
             ReadLine();
-
+            kasse.fehlbestand_anzeigen(hierwirdeingekauft);
             FilialSimulation_Actor_ConsoleApplication.Lagerist friedhelm = new FilialSimulation_Actor_ConsoleApplication.Lagerist();
             friedhelm.einkaufswagen = friedhelm.wareEntnehmen(hierwirdeingekauft);
             friedhelm.bezahlen(ref kasse);
             hierwirdeingekauft.anzeigen(hierwirdeingekauft.regale);
 
+            ReadLine();
         }
     }
 }

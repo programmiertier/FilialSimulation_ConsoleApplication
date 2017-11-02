@@ -92,6 +92,7 @@ namespace FilialSimulation_ConsoleApplication
             {
                 _regale[zaehler] = new Regal(zaehler, wkatalog, 1.0);
             }
+            WriteLine("Verkauf erstellt");
         }
 
         public int anzahlKunden

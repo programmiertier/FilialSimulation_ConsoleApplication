@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using static System.ConsoleColor;
 
 namespace FilialSimulation_Actor_ConsoleApplication
 {
@@ -16,6 +17,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
         private double kunde_umsatz;
         private double tages_umsatz;
         public bool offen;
+        public double zwischensumme;
 
         // Methoden
         public Kasse(ref Warenkatalog wkatalog)
@@ -33,9 +35,10 @@ namespace FilialSimulation_Actor_ConsoleApplication
             for (int zaehler = 0; zaehler < ekwagen.liste.Count; zaehler++) // durch den Einkaufswagen mit Schleife
             {
                 WriteLine("Artikel: {0,3},\t{1,3}mal, mit Einzelpreis:\t{2,4:F2} Euro", ekwagen.liste[zaehler].artikel, ekwagen.liste[zaehler].anzahl, Warenkatalog.warenkatalog[zaehler].artikel_preis);
-                kunde_umsatz += ekwagen.liste[zaehler].anzahl * Warenkatalog.warenkatalog[zaehler].artikel_preis+2.5;
+                kunde_umsatz += ekwagen.liste[zaehler].anzahl * Warenkatalog.warenkatalog[ekwagen.liste[zaehler].artikel].artikel_preis;
             }   // if(this.)
             tages_umsatz += kunde_umsatz;
+            WriteLine("Warenwert ist:\t{0} Euro", kunde_umsatz);
             return kunde_umsatz;    // Kasse meldet den Actor den Preis
         }
 
@@ -62,8 +65,9 @@ namespace FilialSimulation_Actor_ConsoleApplication
                 {
                     // WriteLine("Regal{0} muss aufgefüllt werden", zaehler);
                     // WriteLine("Es fehlen zur maximalen Füllung {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
+                    WriteLine(" Regal {0} muss aufgefüllt werden ", zaehler);
+                    WriteLine(" Es fehlen zum Maximalbestand {0} Einheiten", verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt);
                     arbeitsliste.liste.Add(new Einkaufszettel.zeile() { artikel = zaehler, anzahl = verkaufdort.regale[zaehler].regal_kapazitaet - verkaufdort.regale[zaehler].regal_aktuellerInhalt });
-
                 }
             }
 
@@ -71,7 +75,34 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
             // max - rest
             // return new Einkaufszettel("Fehlliste");
+            WriteLine("{0}", arbeitsliste);
             return arbeitsliste;
+        }
+
+        public double warenwertAnzeigen(FilialSimulation_ConsoleApplication.Raum irgendwo)
+        {
+            double gesamterWert = 0;
+            var warenwert = from inhalt in irgendwo.regale
+                             select inhalt.regal_aktuellerWert;
+            gesamterWert = warenwert.Sum();
+            /* foreach (var item in gesamtwert)
+            {
+                // WriteLine("{0}", item);    // zeigt mir jeden Artikel
+                gesamterWert += item;
+                {
+                        WriteLine("{0}", item);
+                }
+            } */
+            WriteLine("Gesamtwert der Waren im Raum: {0}", gesamterWert);
+            return gesamterWert;
+        }
+
+        public double momentanWert(FilialSimulation_ConsoleApplication.Raum irgendwosonst)
+        {
+            double gesamtWert = 0;
+            var warenwert = from inhalt in irgendwosonst.regale select inhalt.regal_aktuellerWert;
+            gesamtWert = warenwert.Sum();
+            return gesamtWert;
         }
     }
 }
