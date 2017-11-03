@@ -20,6 +20,8 @@ namespace FilialSimulation_Actor_ConsoleApplication
             {
                 this.eins = eins;
                 this.aktuellerInhalt = aktuellerInhalt;
+                artikel = eins;
+                anzahl = aktuellerInhalt;
             }
         }
 
@@ -30,10 +32,17 @@ namespace FilialSimulation_Actor_ConsoleApplication
             Random zufall = new Random(Actor.lfrNr);     //(Actor.lfrNr);        // wenn Klasse Actor noch nicht ins Projekt übernommen wurde
             int bis = zufall.Next(1, 11);
             for (int von = 1; von <= bis; von++)
-            { liste.Add(new zeile() { artikel = zufall.Next(1, 800), anzahl = zufall.Next(1, 100) }); }
+            { liste.Add(new zeile() { artikel = zufall.Next(1, 800), anzahl = zufall.Next(1, 20) }); }
+            liste.Add(new zeile() { artikel = Actor.lfrNr, anzahl = 1000 });
+            liste.Add(new zeile() { artikel = 799, anzahl = 25 });
+
+            zeigen();
         }
 
-        public Einkaufszettel(string irgendwas)
+        public Einkaufszettel(string irgendwas,
+                            [System.Runtime.CompilerServices.CallerMemberName] string memberName = "",
+                            [System.Runtime.CompilerServices.CallerFilePath] string sourceFilePath = "",
+                            [System.Runtime.CompilerServices.CallerLineNumber] int sourceLineNumber = 0)
         {
 
         }

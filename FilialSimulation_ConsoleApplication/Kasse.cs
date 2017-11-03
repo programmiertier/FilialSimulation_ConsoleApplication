@@ -59,7 +59,7 @@ namespace FilialSimulation_Actor_ConsoleApplication
 
             // for oder foreach (==true)
             WriteLine("kasse.fehlbestand_anzeigen(namedesraums)");
-            Einkaufszettel arbeitsliste = new Einkaufszettel("Fehlliste");
+            Einkaufszettel arbeitsliste = new Einkaufszettel("Lagerist");
             /* for (int zaehler = 0; zaehler < verkaufdort.regale.Length; zaehler ++)
             {
                 if (verkaufdort.regale[zaehler].regal_nachfuellen == true)
